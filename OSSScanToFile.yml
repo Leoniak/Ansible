@@ -14,4 +14,4 @@
   - name: Generate output file
     local_action:
       copy content="{{ rpm.stdout_lines }}"
-      dest=/tmp/out/{{ inventory_hostname }}.json
+      dest=/home/aleoniak/share/{{ inventory_hostname }}.json
