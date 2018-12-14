@@ -13,5 +13,6 @@
   - debug: var=rpm.stdout_lines
   - copy:
       content: "{{ rpm }}"
+      sudo: yes
       dest: /tmp/out/{{ inventory_hostname }}.json
-    delegate_to: localhost
+      delegate_to: localhost
