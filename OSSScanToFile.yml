@@ -11,6 +11,7 @@
     args:
       warn: false #false so rpm usage is allowed
   - debug: var=rpm.stdout_lines
-  - fetch:
-      src: "rpm.stdout_lines"
+  - local_action:
+    copy
+      content = "{{ rpm.stdout_lines }}"
       dest: /tmp/out/{{ inventory_hostname }}.json
