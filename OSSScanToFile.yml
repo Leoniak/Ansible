@@ -11,8 +11,6 @@
     args:
       warn: false #false so rpm usage is allowed
   - debug: var=rpm.stdout_lines
-  - copy:
+  - fetch:
       content: "{{ rpm }}"
-      sudo: yes
       dest: /tmp/out/{{ inventory_hostname }}.json
-    delegate_to: localhost
