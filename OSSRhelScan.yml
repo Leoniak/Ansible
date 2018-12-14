@@ -1,4 +1,6 @@
 ---
 - name: Get License of standard installed packages in RHEL
   hosts: all
+  tasks:
+  - name: run RPM
   shell: 'rpm -qa --qf "%{name}, %{version}, %{arch}, %{license} \n"'
