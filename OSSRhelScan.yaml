@@ -1,3 +1,0 @@
----
-- name: Get License of standard installed packages in RHEL
-shell: rpm -qa --qf "%{name}, %{version}, %{arch}, %{license} \n" >> rhel_license.txt
