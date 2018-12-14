@@ -12,6 +12,6 @@
       warn: false #false so rpm usage is allowed
   - debug: var=rpm.stdout_lines
   - copy:
-    content: "{{ rpm }}"
-    dest: /tmp/out/{{ inventory_hostname }}.json
-  delegate_to: localhost
+      content: "{{ rpm }}"
+      dest: /tmp/out/{{ inventory_hostname }}.json
+    delegate_to: localhost
