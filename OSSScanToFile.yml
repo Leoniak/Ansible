@@ -11,10 +11,15 @@
     args:
       warn: false #false so rpm usage is allowed
   - debug: var=rpm.stdout_lines
-  - name: Generate output file
+  - name: Create temporary file
+    tempfile:
+      state: file
+      suffix: json
+    register: licenseFile
+  - name: Copy output to file
     copy: 
       content="{{ rpm.stdout_lines }}"
-      dest=/tmp/licenses.txt
+      dest: "{{ licenseFile.path }}"
   - name: Importing file to tower node
     fetch:
       src: /tmp/licenses.txt
