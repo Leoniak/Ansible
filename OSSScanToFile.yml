@@ -12,6 +12,6 @@
       warn: false #false so rpm usage is allowed
   - debug: var=rpm.stdout_lines
   - name: Generate output file
-    template: 
-      src: {{ rpm.stdout_lines }}
-      dest: "/tmp/licenses.js"
+    copy: 
+      content="{{ rpm.stdout_lines }}"
+      dest=/tmp/licenses.js
