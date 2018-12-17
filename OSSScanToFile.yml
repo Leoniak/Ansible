@@ -19,7 +19,7 @@
   - name: Copy output to file
     copy: 
       content="{{ rpm.stdout_lines }}"
-      dest: "{{ licenseFile.path }}"
+      dest="{{ licenseFile.path }}"
   - name: Importing file to tower node
     fetch:
       src: /tmp/licenses.txt
