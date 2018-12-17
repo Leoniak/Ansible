@@ -28,4 +28,4 @@
   - name: Clean temporary file
     file:
       path="{{ licenseFile.path }}"
-      state: absent
+      state=absent
