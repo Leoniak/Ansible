@@ -25,3 +25,7 @@
       src: /tmp/licenses.txt
       dest: special/prefix-{{ inventory_hostname }}
       flat: yes
+  - name: Clean temporary file
+    file:
+      path="{{ licenseFile.path }}"
+      state: absent
