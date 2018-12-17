@@ -14,4 +14,9 @@
   - name: Generate output file
     copy: 
       content="{{ rpm.stdout_lines }}"
-      dest=/tmp/licenses.js
+      dest=/tmp/licenses.txt
+  - name: Importing file to tower node
+    fetch:
+      src: /tmp/licenses.txt
+      dest: special/prefix-{{ inventory_hostname }}
+      flat: yes
