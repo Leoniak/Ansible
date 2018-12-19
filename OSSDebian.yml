@@ -11,4 +11,5 @@
       version: master
       dest: /tmp/dpkg-licenses
       accept_hostkey: yes
+      force: yes
     become: no
