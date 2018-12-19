@@ -1,0 +1,31 @@
+---
+# tasks file for license scan
+- name: OSS
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: List licenses of standard installed packages in Debian
+    shell: 'rpm -qa --qf "%{name}, %{version}, %{arch}, %{license} \n"'
+    register: rpm
+    args:
+      warn: false #false so rpm usage is allowed
+  - debug: var=rpm.stdout_lines
+  - name: Create temporary file
+    tempfile:
+      state: file
+      suffix: json
+    register: licenseFile
+  - name: Copy output to file
+    copy: 
+      content="{{ rpm.stdout_lines }}"
+      dest="{{ licenseFile.path }}"
+  - name: Importing file to tower node
+    fetch:
+      src: /tmp/licenses.txt
+      dest: special/prefix-{{ inventory_hostname }}
+      flat: yes
+  - name: Clean temporary file
+    file:
+      path="{{ licenseFile.path }}"
+      state=absent
