@@ -5,11 +5,7 @@
   gather_facts: no
 
   tasks:
-  - name: Clone dpkg from git repo
-    git:
-      repo: git@github.com:Leoniak/dpkg-license
-      version: master
+  - name: Copy dpkg-license to remote
+    synchronize:
+      src: /tmp/dpkg-licenses
       dest: /tmp/dpkg-licenses
-      accept_hostkey: yes
-      force: yes
-    become: no
