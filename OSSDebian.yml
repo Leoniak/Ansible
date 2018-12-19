@@ -9,4 +9,3 @@
       copy:
       src: "/tmp/dpkg-licenses"
       dest: "/tmp/dpkg-licenses"
-      directory_mode=yes
