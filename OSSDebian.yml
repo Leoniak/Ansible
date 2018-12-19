@@ -6,6 +6,6 @@
 
   tasks:
   - name: Copy dpkg-license to remote
-    synchronize:
-      src: /tmp/dpkg-licenses
-      dest: /tmp/dpkg-licenses
+    copy:
+      src:/tmp/dpkg-licenses
+      dest:/tmp/dpkg-licenses
