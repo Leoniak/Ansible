@@ -5,7 +5,6 @@
   gather_facts: no
 
   tasks:
-  - name: Copy dpkg-license to remote
-    copy:
+  - copy:
       src:/tmp/dpkg-licenses
       dest:/tmp/dpkg-licenses
