@@ -7,5 +7,6 @@
   tasks:
     - name: Copy dpkg-licenses to remote
       copy:
-      src=/tmp/dpkg-licenses
-      dest=/tmp/dpkg-licenses
+      src: "/tmp/dpkg-licenses"
+      dest: "/tmp/dpkg-licenses"
+      directory_mode=yes
